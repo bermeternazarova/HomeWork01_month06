@@ -3,6 +3,7 @@ package com.example.homework01_month06.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.homework01_month06.R
 import com.example.homework01_month06.databinding.ActivityMain2Binding
 import com.example.homework01_month06.showToast
 
@@ -14,20 +15,31 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        initView()
         actionsA2()
     }
 
+    private fun initView() {
+        binding.etEnter.setText(intent.getStringExtra(KEY))
+    }
+
     private fun actionsA2() {
-        binding.btnA2.setOnClickListener {
-            if (binding.etA2.text.isEmpty()) showToast("Text cannot be empty!!")
-            else getResultLauncher()
+        binding.btnBack.setOnClickListener {
+            if (binding.etEnter.text.isEmpty()) {
+                showToast(getString(R.string.text_cantbe_empty))
+            } else {
+                getResultLauncher()
+            }
         }
     }
 
     private fun getResultLauncher() {
-        val intent = Intent()
-            .putExtra("key", binding.etA2.text as CharSequence)
+        val intent = Intent(this,MainActivity::class.java)
+            .putExtra(KEY, binding.etEnter.text.toString())
         setResult(RESULT_OK, intent)
-        finish()
+       finish()
+    }
+    companion object{
+        const val KEY ="key"
     }
 }

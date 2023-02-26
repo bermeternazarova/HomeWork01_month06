@@ -8,7 +8,7 @@
     tools:context=".ui.MainActivity">
 
    <EditText
-       android:id="@+id/et"
+       android:id="@+id/et_enter"
        android:layout_width="match_parent"
        android:layout_height="50dp"
        app:layout_constraintStart_toStartOf="parent"
@@ -19,21 +19,21 @@
        android:autofillHints="name"/>
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margTop20"
-        android:minWidth="48dp"
+        android:minWidth="@dimen/device_48p"
         android:text="@string/send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et" />
+        app:layout_constraintTop_toBottomOf="@id/et_enter" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/btn"
-        app:layout_constraintEnd_toEndOf="@id/btn"
-        app:layout_constraintTop_toBottomOf="@id/btn"
+        app:layout_constraintStart_toStartOf="@id/btn_send"
+        app:layout_constraintEnd_toEndOf="@id/btn_send"
+        app:layout_constraintTop_toBottomOf="@id/btn_send"
         android:text="@string/activity_1"
         android:textSize="@dimen/txtSize20"
         android:layout_marginTop="@dimen/margTop20"
